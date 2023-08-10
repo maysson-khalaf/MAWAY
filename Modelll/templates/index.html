@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUT THE DNA SEQUENCE</title>
+  <style>
+    body {
+      background: #053A7C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .login {
+      background-color: #ED78A4;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    h1 {
+      color: #0051B8;
+    }
+
+    input[type="file"],
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #ED78A4;
+      color: white;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #053A7C;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="login">
+    <h1>Find The Match Statu</h1>
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required="required" />
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+    <br>
+    <br>
+    <h4 style="color: #0051B8;">{{ prediction_text }}</h4>
+  </div>
+</body>
+</html>
